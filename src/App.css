@@ -1,0 +1,212 @@
+body {
+  padding-top:20px;
+}
+.App {
+  width:80%;
+  margin:0 auto;
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.App p {
+  margin:0;
+}
+/* Board */
+.App h1{
+  margin-bottom:20px; 
+}
+.Board {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Diceplacement {
+  display:flex;
+  width:400px;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom:20px;
+}
+
+.scoreBoard {
+  display:flex;
+}
+/* Counter */
+.counter {
+  width:100px;
+  height:50px;
+  border:2px solid black;
+  border-radius: 5px;
+  display:flex;
+  justify-Content:center;
+  align-Items:center;
+  margin-right: 20px;
+  margin-bottom:20px; 
+}
+
+.counter p {
+  font-weight:bold;
+  font-size:2em;
+  color:green;
+}
+
+.throws {
+  height:50px;
+}
+
+
+/* Dice */
+.Dice {
+  width:50px;
+  height:50px;
+  border:2px solid red;
+  border-radius: 10px;
+  display:flex;
+  justify-Content:center;
+  align-Items:center;
+  cursor:pointer;
+}
+
+.DiceLocked {
+  width:50px;
+  height:50px;
+  border:2px solid green;
+  border-radius: 10px;
+  display:flex;
+  justify-Content:center;
+  align-Items:center;
+  cursor:pointer;
+}
+
+.DiceFinal {
+  width:50px;
+  height:50px;
+  border:2px solid black;
+  border-radius: 10px;
+  display:flex;
+  justify-Content:center;
+  align-Items:center;
+}
+
+
+.DiceText {
+  font-weight:bold;
+  font-size:2em;
+}
+
+.refreshButton {
+  width:50px;
+  height:50px;
+}
+.refreshButton:hover {
+  cursor:pointer;
+}
+
+.scoringTable {
+  margin-top:20px;
+}
+.scoringTable td:nth-of-type(2){
+  width:350px;
+  /* display:flex;
+  flex-direction: row;
+  justify-content: space-around; */
+}
+
+.scoringTable td, .scoringTable th, .scoringTable tr, .scoringTable .table thead, .scoringTable .table thead tr{
+  border:2px solid black !important;
+}
+
+.errorMessage {
+  font-weight: bold;
+  color:red;
+  font-size:25px;
+  padding:5px 10px;
+  border:2px solid red;
+}
+
+
+/* Dice */
+.cssDice {
+  width:80px;
+  height:80px;
+  border:2px solid black;
+  border-radius: 10px;
+  display:flex;
+  justify-Content:center;
+  align-Items:center;
+  cursor:pointer;
+  position:relative;
+}
+
+.cssDice div:nth-of-type(1){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:5px;
+  left:5px;
+}
+.cssDice div:nth-of-type(2){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:5px;
+  left:50px;
+}
+.cssDice div:nth-of-type(3){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:30px;
+  left:5px;
+}
+.cssDice div:nth-of-type(4){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:30px;
+  left:50px;
+}
+.cssDice div:nth-of-type(5){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:55px;
+  left:5px;
+}
+.cssDice div:nth-of-type(6){
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background-color:black;
+  position: absolute;
+  top:55px;
+  left:50px;
+}

@@ -6,28 +6,28 @@ class ScoringTable extends React.Component {
     constructor(props){
         super(props);
         this.state=({
-                AcesSave:[],
-                TwosSave:[],
-                ThreesSave:[],
-                FoursSave:[],
-                FivesSave:[],
-                SixesSave:[],
-                ThreeOfAKindSave:[],
-                FourOfAKindSave:[],
-                FullHouseSave:[],
-                SmallStraightSave:[],
-                LargeStraightSave:[],
-                YahtzeeSave:[],
-                ChanceSave:[],
+            AcesSave:[],
+            TwosSave:[],
+            ThreesSave:[],
+            FoursSave:[],
+            FivesSave:[],
+            SixesSave:[],
+            ThreeOfAKindSave:[],
+            FourOfAKindSave:[],
+            FullHouseSave:[],
+            SmallStraightSave:[],
+            LargeStraightSave:[],
+            YahtzeeSave:[],
+            ChanceSave:[],
             AcesPoints:0,
             TwosPoints:0,
             ThreesPoints:0,
             FoursPoints:0,
             FivesPoints:0,
             SixesPoints:0,
-            TotalScorePoints:0,
+            Total:0,
             BonusPoints:0,
-            TotalPoints:0,
+            TotalUpperPoints:0,
             ThreeOfAKindPoints:0,
             FourOfAKindPoints:0,
             FullHousePoints:0,
@@ -35,8 +35,7 @@ class ScoringTable extends React.Component {
             LargeStraightPoints:0,
             YahtzeePoints:0,
             ChancePoints:0,
-            TotalLowerSectionPoints:0,
-            TotalUpperSectionPoints:0,
+            TotalLowerPoints:0,
             GrandTotalPoints:0,
         })
     this.handleScore = this.handleScore.bind(this);
@@ -46,79 +45,174 @@ class ScoringTable extends React.Component {
 
   handleScore(ScoringLine, okornot){
         console.log('dés reçu du board : ', this.props.allDices)
-        // var scoreCopy = {...this.state.score};
-        // var lowerSectionCopy = {...this.state.lowerSectionPoints}
-        // var upperSectionCopy = {...this.state.upperSectionPoints};
 
         if (this.props.throws !== 3) {
+            var score = 0;
             switch (ScoringLine) {
+
             case 'Aces':
-                this.setState({AcesSave : this.props.allDices, AcesPoints: this.props.allDices.filter( result => result === 1).length * 1})
+                score = this.props.allDices.filter( dice => dice === 1).length * 1;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    AcesSave : this.props.allDices,
+                    AcesPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
+
             case 'Twos':
-                this.setState({TwosSave : this.props.allDices, TwosPoints: this.props.allDices.filter( result => result === 2).length * 2})
+                score = this.props.allDices.filter( dice => dice === 2).length * 2;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    TwosSave : this.props.allDices,
+                    TwosPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
+
             case 'Threes':
-                this.setState({ThreesSave : this.props.allDices, ThreesPoints: this.props.allDices.filter( result => result === 3).length * 3})
+                score = this.props.allDices.filter( dice => dice === 3).length * 3;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    ThreesSave : this.props.allDices,
+                    ThreesPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
+
             case 'Fours':
-                this.setState({FoursSave : this.props.allDices, FoursPoints: this.props.allDices.filter( result => result === 4).length * 4})
+                score = this.props.allDices.filter( dice => dice === 4).length * 4;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    FoursSave : this.props.allDices,
+                    FoursPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
+
             case 'Fives':
-                this.setState({FivesSave : this.props.allDices, FivesPoints: this.props.allDices.filter( result => result === 5).length * 5})
+                score = this.props.allDices.filter( dice => dice === 5).length * 5;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    FivesSave : this.props.allDices,
+                    FivesPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
+
             case 'Sixes':
-                this.setState({SixesSave : this.props.allDices, SixesPoints : this.props.allDices.filter( result => result === 6).length * 6})
+                score = this.props.allDices.filter( dice => dice === 6).length * 6;
+                var newTotal = this.state.Total + score;
+                var newBonus = newTotal >= 63 ? 35 : 0;
+                var newTotalUpperPoints = newTotal + newBonus;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                this.setState({
+                    SixesSave : this.props.allDices,
+                    SixesPoints : score,
+                    Total : newTotal,
+                    BonusPoints: newBonus,
+                    TotalUpperPoints:newTotalUpperPoints,
+                    GrandTotalPoints:newGrandTotalPoints,
+                });
                 break;
 
-            // //User picked Three Of a Kind
-            case 'ThreeOfAKind':
-                // Save dice in the row : Three of a Kind                
-                this.setState({ThreeOfAKindSave : this.props.allDices}, ()=>{
-
-                    // Check & score 3 of a kind ( X X X Y Z ), same dice appears 3 times
-                    
-                    //If 3 dice are the same, points = the amount of all dice
+            //User picked Three Of a Kind
+            case 'ThreeOfAKind':               
+                    // Check & score Three of a kind ( X X X Y Z ), same dice appears 3 times
                     for(var i = 1; i < 7 ; i++){
                         if (this.props.allDices.filter( x => x === i).length >= 3) { 
-                            this.setState({ThreeOfAKindPoints:this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue)});
+                            score = this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue)
                             break;
                         }
                     }
-                })
+                    
+                    var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                    var newGrandTotalPoints = this.state.GrandTotalPoints + score
+                    // Save dice in the row : Three of a Kind 
+                    this.setState({
+                        ThreeOfAKindSave : this.props.allDices,
+                        ThreeOfAKindPoints : score,
+                        TotalLowerPoints : newTotalLowerPoints,
+                        GrandTotalPoints: newGrandTotalPoints                          
+                    });
+
                 break;
 
+            //User picked Four Of a Kind
             case 'FourOfAKind':
-                // Save the dice in the row Four of a kind
-                this.setState({FourOfAKindSave : this.props.allDices}, ()=>{
-
-                    // Check & score 4 of a kind ( X X X X Y )
-                    for(var i = 1; i < 7 ; i++){
-                        if (this.props.allDices.filter( x => x === i).length >= 4) {              
-                            this.setState({FourOfAKindPoints: this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue)  });
-                            break;
-                        }
+                
+                // Check & score Four of a kind ( X X X X Y ), same dice appears 4 times
+                for(var i = 1; i < 7 ; i++){
+                    if (this.props.allDices.filter( x => x === i).length >= 4) {  
+                        score = this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue);
+                        break;
                     }
-                })
+                }
+                
+                var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                // Save the dice in the row Four of a kind && update scores
+                        this.setState({
+                            FourOfAKindSave : this.props.allDices,
+                            FourOfAKindPoints: score,
+                            TotalLowerPoints : newTotalLowerPoints,  
+                            GrandTotalPoints: newGrandTotalPoints
+                        });
                 break;
 
+            //User picked Full House
             case 'FullHouse':
-                // Save dice in the row : FullHouse
-                this.setState({FullHouseSave : this.props.allDices}, ()=>{
 
                     // Check & score Full House ( X X X Y Y ) or ( Y Y X X X ),  3 + 2
                     var FullHouse = this.state.FullHouseSave;
                     if( FullHouse.filter(x => x === FullHouse[0]).length + FullHouse.filter(x => x === FullHouse[FullHouse.length-1]).length === 5 ){
-                        this.setState({FullHousePoints: 25});
+                        score = 25;
                     }
-                    
 
-                })
+                    var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                    var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                    // Save dice in the row : FullHouse
+                    this.setState({
+                        FullHouseSave : this.props.allDices,
+                        FullHousePoints: 25,
+                        TotalLowerPoints : newTotalLowerPoints,
+                        GrandTotalPoints: newGrandTotalPoints
+                    });
+                        
                 break;
 
+            //User picked SmallStraight
             case 'SmallStraight':
-                // User picked the row : Small Straight
-                this.setState({SmallStraightSave : this.props.allDices}, ()=>{
                     
                     // Check for Small Straight ( 1, 3, 4, 5, 6) or ( 1, 2, 3, 4, 6) a straight of 4 dice
                                         // Set to make a copy of array with no duplicates
@@ -127,61 +221,98 @@ class ScoringTable extends React.Component {
                     for(var i = 0; i < 5; i++ ){
                         if(SmallStraight[i+1] === SmallStraight[i]+1){
                             x++
-                            if(x >= 3){    
-                            this.setState({SmallStraightPoints:30});
+                            if(x >= 3){ 
+                                score = 30;
                             break; 
                             }
                         }
-                    }
-                })
+                    }   
+
+                var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                // Save dice in the row : SmallStraight & update scores
+                    this.setState({
+                        SmallStraightSave : this.props.allDices,
+                        SmallStraightPoints : 30,
+                        TotalLowerPoints : newTotalLowerPoints,
+                        GrandTotalPoints: newGrandTotalPoints   
+                        
+                    });
                 break;
 
+            //User picked Large Straight
             case 'LargeStraight':
-                // User picked the row : Large Straight
-                this.setState({LargeStraightSave : this.props.allDices}, ()=>{
                     // Check for large Straight ( 1 2 3 4 5 ) or ( 2 3 4 5 6 ) a straight of 5 dice
                     var LargeStraight = this.state.LargeStraightSave;
 
-                    if (LargeStraight[0] < LargeStraight[1] && LargeStraight[1] < LargeStraight[2] && LargeStraight[2] < LargeStraight[3] && LargeStraight[3] < LargeStraight[4]){
-                        this.setState({LargeStraightPoints: 40});
+                    if (LargeStraight[0] === LargeStraight[1]-1 && LargeStraight[1] === LargeStraight[2]-1 && LargeStraight[2] === LargeStraight[3]-1 && LargeStraight[3] === LargeStraight[4]-1){
+                        score = 40;
+                    }
+
+                    var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                    var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                    
+                    // Save dice in row : Large Straight & update scores
+                    this.setState({
+                        LargeStraightSave : this.props.allDices,
+                        LargeStraightPoints: 40,
+                        TotalLowerPoints : newTotalLowerPoints,
+                        GrandTotalPoints: newGrandTotalPoints  
+                    });
+                break;
+
+            //User picked Three Of a Kind
+            case 'Yahtzee':
+
+                    // Check for YAHTZEE ( X X X X X ), 5 times the same dice
+                    var Yahtzee = this.state.YahtzeeSave;
+                    if (Yahtzee.filter(x => x === Yahtzee[0]).length === 5 ){
+                        score = 50;
                     }
                     
+                    var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                    var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+                    // User picked the row : Yahtzee & update scores
+                    this.setState({
+                        YahtzeeSave : this.props.allDices,
+                        YahtzeePoints:50,
+                        TotalLowerPoints : newTotalLowerPoints,
+                        GrandTotalPoints: newGrandTotalPoints    
+                    });
+                break;
+
+            //User picked Chance : Sum of 5 dice
+            case 'Chance':
+                score = this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+                var newTotalLowerPoints = this.state.TotalLowerPoints + score;
+                var newGrandTotalPoints = this.state.GrandTotalPoints + score;
+
+                //Save dice in chance row & update scores
+                this.setState({
+                    ChanceSave : this.props.allDices,
+                    ChancePoints: score,
+                    TotalLowerPoints : newTotalLowerPoints,
+                    GrandTotalPoints: newGrandTotalPoints                   
                 })
                 break;
 
-                case 'Yahtzee':
-                    // User picked the row : Yahtzee
-                    this.setState({YahtzeeSave : this.props.allDices}, ()=> {
-
-                        // Check for YAHTZEE ( X X X X X )
-                        var Yahtzee = this.state.score.Yahtzee;
-                        if (Yahtzee.filter(x => x === Yahtzee[0]).length === 5 ){
-                            this.setState({YahtzeePoints:50});
-                        }
-                    })
-                    break;
-
-            case 'Chance':
-                // User picked the row : Chance
-                this.setState({ChanceSave : this.props.allDices, ChangePoints: this.props.allDices.reduce((accumulator, currentValue) => accumulator + currentValue)})
-                break;
             default:
-                console.log('default du switch');
+                console.log('HandleScore default : Error');
             }
-            this.props.handleScoreParent('OK');
+            console.log('total 111111111111111 : ', this.state.GrandTotalPoints)
+            this.props.handleScoreParent('OK', this.state.GrandTotalPoints);
+
         } else {
-            this.props.handleScoreParent('Errrr You tried to cheat');
+            this.props.handleScoreParent('MMhhhh did you try to cheat ?', this.state.GrandTotalPoints);
         }
   } 
 
 
   render() {
-    
-    // var totalScore = this.state.upperSectionPoints.Aces + this.state.upperSectionPoints.Twos + this.state.upperSectionPoints.Threes + this.state.upperSectionPoints.Fours + this.state.upperSectionPoints.Fives + this.state.upperSectionPoints.Sixes
-
     return (
       <div className="scoringTable">
-             <Table bordered >
+             <Table >
                 <thead>
                     <tr>
                         <th>Upper Section</th>
@@ -252,28 +383,15 @@ class ScoringTable extends React.Component {
                         <td>{this.state.SixesPoints !== 0 ? this.state.SixesPoints : 0 }</td>
                     </tr>
                     <tr>
-                        <th scope="row">Total Score</th>
-                        <td>=></td>
-                        <td></td>
-                        <td>{this.state.TotalPoints}</td>
+                        <th scope="row"colspan="3">Total of upper section</th>
+                        <td>{this.state.TotalUpperPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Bonus</th>
-                        <td>If total score is 63 or over : 35 points</td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" colspan="3">Bonus : If total score is 63 or over : 35 points</th>
+                        <td>{this.state.BonusPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Total</th>
-                        <td>Of upper section =></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">lower Section</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" colspan="4">lower Section</th>
                     </tr>
                     <tr>
                         <th scope="row">3 of a kind</th>
@@ -343,26 +461,16 @@ class ScoringTable extends React.Component {
                             <Button color="success" onClick={()=>this.handleScore('Chance')}>Pick</Button> :
                             this.state.ChanceSave.sort()}
                         </td>
-                        <td>{this.state.ChancePoints.Chance}</td>
-                    </tr>
-                    {/* <tr>
-                        <th scope="row">Total</th>
-                        <td>of lower section</td>
-                        <td></td>
-                        <td></td>
+                        <td>{this.state.ChancePoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Total</th>
-                        <td>of upper section</td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" colspan="3">Total of lower section</th>
+                        <td>{this.state.TotalLowerPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Grand total</th>
-                        <td>=></td>
-                        <td></td>
-                        <td></td>
-                    </tr> */}
+                        <th scope="row" colspan="3">Grand total</th>
+                        <td>{this.state.GrandTotalPoints}</td>
+                    </tr>
                 </tbody>
             </Table>
       </div>

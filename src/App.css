@@ -1,5 +1,6 @@
 body {
   padding-top:20px;
+  background-color:#9fff9f !important;
 }
 .App {
   width:80%;
@@ -38,6 +39,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.topPart {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
 .Diceplacement {
   display:flex;
   width:400px;
@@ -48,24 +55,6 @@ body {
 
 .scoreBoard {
   display:flex;
-}
-/* Counter */
-.counter {
-  width:100px;
-  height:50px;
-  border:2px solid black;
-  border-radius: 5px;
-  display:flex;
-  justify-Content:center;
-  align-Items:center;
-  margin-right: 20px;
-  margin-bottom:20px; 
-}
-
-.counter p {
-  font-weight:bold;
-  font-size:2em;
-  color:green;
 }
 
 .throws {
@@ -83,6 +72,7 @@ body {
   justify-Content:center;
   align-Items:center;
   cursor:pointer;
+  background-color:white;
 }
 
 .DiceLocked {
@@ -94,6 +84,7 @@ body {
   justify-Content:center;
   align-Items:center;
   cursor:pointer;
+  background-color:white;
 }
 
 .DiceFinal {
@@ -123,27 +114,29 @@ body {
 .scoringTable {
   margin-top:20px;
 }
+.scoringTable table {
+  background-color:white;
+}
 .scoringTable td:nth-of-type(2){
   width:350px;
-  /* display:flex;
-  flex-direction: row;
-  justify-content: space-around; */
 }
 
 .scoringTable td, .scoringTable th, .scoringTable tr, .scoringTable .table thead, .scoringTable .table thead tr{
   border:2px solid black !important;
 }
 
-.errorMessage {
+div .errorMessage {
   font-weight: bold;
   color:red;
   font-size:25px;
   padding:5px 10px;
   border:2px solid red;
+  margin-top:20px;
 }
 
 
 /* Dice */
+/* work in progress : making dice in css */ 
 .cssDice {
   width:80px;
   height:80px;

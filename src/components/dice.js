@@ -22,8 +22,7 @@ class Dice extends React.Component {
 
   render() {
 
-
-
+    if (this.props.throws !== 3) {
     return (
       <div className={this.props.diceState ? "Dice" : "DiceLocked"}
         numero={this.props.position}
@@ -31,7 +30,17 @@ class Dice extends React.Component {
       >
           <p className="DiceText">{this.props.value}</p>
       </div>
-    );
+    )} else {
+      
+    return (
+      <div className={this.props.diceState ? "Dice" : "DiceLocked"}
+        numero={this.props.position}
+      >
+          <p className="DiceText">{this.props.value}</p>
+      </div>
+    )
+
+    }
   }
 }
 

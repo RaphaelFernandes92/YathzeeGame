@@ -37,13 +37,9 @@ class Board extends React.Component {
         this.setState({
             diceValues:diceValuesCopy,
             throws:this.state.throws-1
-            }, ()=> {
-              //Inutile ce score, pas comme ça qu'on calcule celon les règles.
-              this.setState({totalScore:this.state.diceValues.reduce((accumulator, currentValue) => accumulator + currentValue)
-                })
             })
     }else {
-          console.log('Number of throws exceded, you must pick a lane to score');
+          this.setState({errorMessage:'Number of throws exceded, you must pick a lane to score'});
     }
 
   }
@@ -68,13 +64,13 @@ class Board extends React.Component {
 
   render() {
       var listDices = this.state.diceValues.map((dice, i)=>{
-          return (<Dice handleClickParent={this.handleClick} refresh={this.state.refresh} value={dice} diceState={this.state.diceStatus[i]} position={i} key={i} />)
+          return (<Dice handleClickParent={this.handleClick} throws={this.state.throws} value={dice} diceState={this.state.diceStatus[i]} position={i} key={i} />)
       })
     console.log('score : ', this.state.score)
     return (
       <div className="Board">
         { this.state.round === 13 ? <h1>Partie terminée avec un score de : {this.state.score}</h1> : 
-          <div>
+          <div className="topPart">
             <div className="Diceplacement">
               {listDices}
               <RefreshButton handleClickParent={this.handleRefresh} />

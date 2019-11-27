@@ -2,10 +2,9 @@ import React from 'react';
 import Dice from './dice';
 import RefreshButton from './refreshbutton';
 import ScoringTable from './ScoringTable';
-import { Container, Row, Col } from 'reactstrap';
+import { Col } from 'reactstrap';
 
 
-// var random = Math.floor(Math.random() * (7 - 1) + 1);
 
 class Board extends React.Component {
   constructor(props) {
@@ -39,8 +38,8 @@ class Board extends React.Component {
             diceValues:diceValuesCopy,
             throws:this.state.throws-1
             })
-    }else {
-          this.setState({errorMessage:'Number of throws exceded, you must pick a line to score'});
+    } else {
+        this.setState({errorMessage:'Number of throws exceded, you must pick a line to score'});
     }
 
   }
@@ -67,6 +66,9 @@ class Board extends React.Component {
       var listDices = this.state.diceValues.map((dice, i)=>{
           return (<Dice handleClickParent={this.handleClick} throws={this.state.throws} value={dice} diceState={this.state.diceStatus[i]} position={i} key={i} />)
       })
+
+     if(this.state.round === 13 ){ window.scrollTo(0, 0)}
+
     console.log('score : ', this.state.score)
     return (
       <div className="Board">
@@ -82,7 +84,7 @@ class Board extends React.Component {
             </div>
 
           <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
-          <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank">Code on github</a>. v1.01</p>
+          <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank" rel="noopener noreferrer">Code on github</a>. v1.01</p>
       </div>
     );
   }

@@ -39,7 +39,7 @@ class Board extends React.Component {
             throws:this.state.throws-1
             })
     }else {
-          this.setState({errorMessage:'Number of throws exceded, you must pick a lane to score'});
+          this.setState({errorMessage:'Number of throws exceded, you must pick a line to score'});
     }
 
   }
@@ -85,6 +85,7 @@ class Board extends React.Component {
         }
 
           <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
+      <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank">Code on github</a></p>
       </div>
     );
   }

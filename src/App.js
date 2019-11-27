@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Board from './components/board';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'reactstrap';
 
 
 class App extends React.Component {
@@ -15,17 +16,25 @@ class App extends React.Component {
   render() {
    if ( this.state.gameStarted ) {
     return (
-      <div className="App">
-            <h1>YAHTZEE</h1>
-            <Board />
-      </div>
+       <Container>
+         <Row>
+          <Col>
+            <div className="App">
+                  <h1>YAHTZEE</h1>
+                  <Board />
+            </div>
+          </Col>
+          </Row> 
+      </Container>
     );
    } else {
      return (
-      <div className="App">
-            <h1>YAHTZEE</h1>
-        <button onClick={()=>this.setState({gameStarted:!this.state.gameStarted})}>Start Playing</button>
-      </div>
+       <Container>
+          <div className="App">
+                <h1>YAHTZEE</h1>
+            <button onClick={()=>this.setState({gameStarted:!this.state.gameStarted})}>Start Playing</button>
+          </div>
+      </Container>
      );
    }
   }

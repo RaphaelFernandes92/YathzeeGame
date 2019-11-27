@@ -316,7 +316,7 @@ class ScoringTable extends React.Component {
   render() {
     return (
       <div className="scoringTable">
-             <Table >
+             <Table responsive>
                 <thead>
                     <tr>
                         <th>Upper Section</th>

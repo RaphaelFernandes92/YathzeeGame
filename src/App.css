@@ -41,17 +41,12 @@ body {
 
 .topPart {
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items:center;
-}
-.Diceplacement {
-  display:flex;
-  /* width:400px; */
-  justify-content: space-around;
-  align-items: center;
+  flex-wrap:wrap;
+  justify-content: center;
   margin-bottom:20px;
 }
-
 .scoreBoard {
   display:flex;
 }
@@ -95,6 +90,9 @@ body {
 }
 .scoringTable table {
   background-color:white;
+}
+.scoringTable table td,.scoringTable table th {
+  vertical-align: middle;
 }
 .scoringTable td:nth-of-type(2){
   width:350px;

@@ -2,6 +2,7 @@ import React from 'react';
 import Dice from './dice';
 import RefreshButton from './refreshbutton';
 import ScoringTable from './ScoringTable';
+import { Container, Row, Col } from 'reactstrap';
 
 
 // var random = Math.floor(Math.random() * (7 - 1) + 1);
@@ -69,23 +70,19 @@ class Board extends React.Component {
     console.log('score : ', this.state.score)
     return (
       <div className="Board">
-        { this.state.round === 13 ? <h1>Partie terminée avec un score de : {this.state.score}</h1> : 
-          <div className="topPart">
-            <div className="Diceplacement">
+        { this.state.round === 13 ? <h1>Game Over, you finished with : {this.state.score} points.</h1> : 
+          <Col className="topPart">
               {listDices}
               <RefreshButton handleClickParent={this.handleRefresh} />
-            </div>
-
+          </Col>
+        }
             <div>
               {this.state.throws === 0 ? <p> &#8595; Please pick a score line &#8595;</p> : <p>Throws left : {this.state.throws} !</p>}
               {this.state.errorMessage ? <p className="errorMessage" > {this.state.errorMessage} </p> : ''}
-          </div>
-
-        </div>
-        }
+            </div>
 
           <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
-      <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank">Code on github</a>. v1.01</p>
+          <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank">Code on github</a>. v1.01</p>
       </div>
     );
   }

@@ -13,7 +13,7 @@ class RefreshButton extends React.Component {
 
   render() {
     return (
-      <div 
+      <div className="refreshButton"
         onClick={this.handleClick}>
             <img className="refreshButton" src={refreshImg} alt="refresh button" />
       </div>

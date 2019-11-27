@@ -1,5 +1,7 @@
 # YahtzeeGame by Raphaël Fernandes
-Yahtzee Game in ReactJS
+Challenged myself to make a Yahtzee game only using react, I purposely chose not to use redux.
+
+Any comment is welcome & appreciated :)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

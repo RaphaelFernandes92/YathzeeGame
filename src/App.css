@@ -100,10 +100,6 @@ body {
 .scoringTable table td,.scoringTable table th {
   vertical-align: middle;
 }
-.scoringTable td:nth-of-type(2){
-  width:350px;
-}
-
 .scoringTable td, .scoringTable th, .scoringTable tr, .scoringTable .table thead, .scoringTable .table thead tr{
   border:2px solid black !important;
 }
@@ -408,6 +404,10 @@ box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.46);
   -webkit-box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.46);
   -moz-box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.46);
   box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.46);
+}
+
+.Copyright {
+  text-align:center;
 }
 
 /* 

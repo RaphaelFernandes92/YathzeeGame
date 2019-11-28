@@ -23,8 +23,8 @@ class App extends React.Component {
    if ( this.state.gameStarted ) {
     return (
        <Container>
-                  <Row>
-                    <Col>
+                  <Row className="justify-content-center">
+                    <Col xs="10">
                       <Row  className="justify-content-center">
                           <h1>YAHTZEE</h1>
                       </Row>
@@ -44,7 +44,7 @@ class App extends React.Component {
                     <h1>YAHTZEE</h1>
                   </Row>
                   <Row className="justify-content-center">
-                    <Col className="rules" lg="8" >
+                    <Col className="rules" xs="8" >
                         <h2>Rules :</h2>
                         <p>
                           The object of Yahtzee is to obtain the highest score from throwing 5 dice.

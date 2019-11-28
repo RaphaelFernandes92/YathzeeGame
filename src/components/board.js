@@ -88,7 +88,7 @@ class Board extends React.Component {
             <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
           </Row>
           <Row>
-            <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank" rel="noopener noreferrer">Code on github</a>. v1.011</p>
+            <p className="Copyright">Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank" rel="noopener noreferrer">Code on github</a>. v1.011</p>
           </Row>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import Dice from './dice';
 import RefreshButton from './refreshbutton';
 import ScoringTable from './ScoringTable';
-import { Col } from 'reactstrap';
+import {  Row, Col } from 'reactstrap';
 
 
 
@@ -73,18 +73,23 @@ class Board extends React.Component {
     return (
       <div className="Board">
         { this.state.round === 13 ? <h1>Game Over, you finished with : {this.state.score} points.</h1> : 
-          <Col className="topPart">
-              {listDices}
-              <RefreshButton handleClickParent={this.handleRefresh} />
+          <Col>
+              <Row className="justify-content-center">
+                {listDices}
+                <RefreshButton handleClickParent={this.handleRefresh} />
+              </Row>
+              <Row className="flex-column align-items-center" >
+                {this.state.throws === 0 ? <p> &#8595; Please pick a score line &#8595;</p> : <p>Throws left : {this.state.throws} !</p>}
+                {this.state.errorMessage ? <p className="errorMessage" > {this.state.errorMessage} </p> : ''}
+              </Row>
           </Col>
         }
-            <div>
-              {this.state.throws === 0 ? <p> &#8595; Please pick a score line &#8595;</p> : <p>Throws left : {this.state.throws} !</p>}
-              {this.state.errorMessage ? <p className="errorMessage" > {this.state.errorMessage} </p> : ''}
-            </div>
-
-          <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
-          <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank" rel="noopener noreferrer">Code on github</a>. v1.01</p>
+          <Row>
+            <ScoringTable handleScoreParent={this.handleScore} allDices={this.state.diceValues} throws={this.state.throws} round={this.state.round} />
+          </Row>
+          <Row>
+            <p>Made in React by Raphaël Fernandes : <a href="https://github.com/RaphaelFernandes92/YathzeeGame" target="_blank" rel="noopener noreferrer">Code on github</a>. v1.011</p>
+          </Row>
       </div>
     );
   }

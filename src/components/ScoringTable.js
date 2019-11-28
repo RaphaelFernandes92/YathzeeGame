@@ -320,15 +320,15 @@ class ScoringTable extends React.Component {
                         <td>{this.state.SixesPoints !== 0 ? this.state.SixesPoints : 0 }</td>
                     </tr>
                     <tr>
-                        <th scope="row"colspan="3">Total of upper section</th>
+                        <th scope="row"colSpan="3">Total of upper section</th>
                         <td>{this.state.TotalUpperPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="3">Bonus : If total score is 63 or over : 35 points</th>
+                        <th scope="row" colSpan="3">Bonus : If total score is 63 or over : 35 points</th>
                         <td>{this.state.BonusPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="4">lower Section</th>
+                        <th scope="row" colSpan="4">lower Section</th>
                     </tr>
                     <tr>
                         <th scope="row">3 of a kind</th>
@@ -401,11 +401,11 @@ class ScoringTable extends React.Component {
                         <td>{this.state.ChancePoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="3">Total of lower section</th>
+                        <th scope="row" colSpan="3">Total of lower section</th>
                         <td>{this.state.TotalLowerPoints}</td>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="3">Grand total</th>
+                        <th scope="row" colSpan="3">Grand total</th>
                         <td>{this.state.GrandTotalPoints}</td>
                     </tr>
                 </tbody>

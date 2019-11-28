@@ -22,43 +22,29 @@ class Dice extends React.Component {
 
   render() {
 
-    if (this.props.throws !== 3 && this.props.value === 6) {
+    switch(this.props.value) {
 
-        return (
-            <div className={this.props.diceState ? "Dice cssDice dice6" : "DiceLocked cssDice dice6"}
-                numero={this.props.position}
-                onClick={this.handleClick}
-            >
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-            </div>
-        )
+        case 6 : 
+            return (
+                <div className={this.props.diceState ? "Dice cssDice dice6" : "DiceLocked cssDice dice6"}
+                    number={this.props.position}
+                    onClick={this.props.throws === 3 ? null : this.handleClick}
+                >
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+            )
 
-    } else if (this.props.throws === 3 && this.props.value === 6){
-        
-        return (
-            <div className={this.props.diceState ? "Dice cssDice dice6" : "DiceLocked cssDice dice6"}
-                numero={this.props.position}
-            >
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-            </div>
-        )
-
-    } else if (this.props.throws !== 3 && this.props.value === 5) {
+        case 5 : 
 
             return (
                 <div className={this.props.diceState ? "Dice cssDice dice5" : "DiceLocked cssDice dice5"}
-                    numero={this.props.position}
-                    onClick={this.handleClick}
+                    number={this.props.position}
+                    onClick={this.props.throws === 3 ? null : this.handleClick}
                 >
                         <div></div>
                         <div></div>
@@ -68,26 +54,12 @@ class Dice extends React.Component {
                 </div>
             )
 
-    } else if (this.props.throws === 3 && this.props.value === 5){
-
-        return (
-            <div className={this.props.diceState ? "Dice cssDice dice5" : "DiceLocked cssDice dice5"}
-                numero={this.props.position}
-            >
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-            </div>
-        )
-
-    } else if (this.props.throws !== 3 && this.props.value === 4) {
+        case 4 : 
 
             return (
                 <div className={this.props.diceState ? "Dice cssDice dice4" : "DiceLocked cssDice dice4"}
-                    numero={this.props.position}
-                    onClick={this.handleClick}
+                    number={this.props.position}
+                    onClick={this.props.throws === 3 ? null : this.handleClick}
                 >
                         <div></div>
                         <div></div>
@@ -96,25 +68,12 @@ class Dice extends React.Component {
                 </div>
             )
 
-    } else if (this.props.throws === 3 && this.props.value === 4){
-
-        return (
-            <div className={this.props.diceState ? "Dice cssDice dice4" : "DiceLocked cssDice dice4"}
-                numero={this.props.position}
-            >
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-            </div>
-        )
-
-    } else if (this.props.throws !== 3 && this.props.value === 3) {
+        case 3 : 
 
             return (
                 <div className={this.props.diceState ? "Dice cssDice dice3" : "DiceLocked cssDice dice3"}
-                    numero={this.props.position}
-                    onClick={this.handleClick}
+                    number={this.props.position}
+                    onClick={this.props.throws === 3 ? null : this.handleClick}
                 >
                         <div></div>
                         <div></div>
@@ -122,62 +81,46 @@ class Dice extends React.Component {
                 </div>
             )
 
-    } else if (this.props.throws === 3 && this.props.value === 3){
-        return (
-        <div className={this.props.diceState ? "Dice cssDice dice3" : "DiceLocked cssDice dice3"}
-            numero={this.props.position}
-        >
-                <div></div>
-                <div></div>
-                <div></div>
-        </div>
-        )
-    } else if (this.props.throws !== 3 && this.props.value === 2) {
+        case 2 : 
+
             return (
                 <div className={this.props.diceState ? "Dice cssDice dice2" : "DiceLocked cssDice dice2"}
-                    numero={this.props.position}
-                    onClick={this.handleClick}
+                    number={this.props.position}
+                    onClick={this.props.throws === 3 ? null : this.handleClick}
                 >
                         <div></div>
                         <div></div>
                 </div>
             )
-    } else if (this.props.throws === 3 && this.props.value === 2){
-        return (
-        <div className={this.props.diceState ? "Dice cssDice dice2" : "DiceLocked cssDice dice2"}
-            numero={this.props.position}
-        >
-                <div></div>
-                <div></div>
-        </div>
-        )
-    } else if (this.props.throws !== 3 && this.props.value === 1) {
+
+        case 1 : 
+
             return (
                 <div className={this.props.diceState ? "Dice cssDice dice1" : "DiceLocked cssDice dice1"}
-                    numero={this.props.position}
-                    onClick={this.handleClick}
+                    number={this.props.position}
+                    onClick={ this.props.throws === 3 ? null : this.handleClick}
                 >
                         <div></div>
                 </div>
             )
-    } else if (this.props.throws === 3 && this.props.value === 1){
-        return (
-        <div className={this.props.diceState ? "Dice cssDice dice1" : "DiceLocked cssDice dice1"}
-            numero={this.props.position}
-        >
-                <div></div>
-        </div>
-        )
-    } else {
-    return (
-      <div className={this.props.diceState ? "Dice" : "DiceLocked"}
-        numero={this.props.position}
-        onClick={this.handleClick}
-      >
-          <p className="DiceText">{this.props.value}</p>
-      </div>
-    )
+
+        default : 
+        
+            return (
+                <div className={this.props.diceState ? "Dice" : "DiceLocked"}
+                    number={this.props.position}
+                    onClick={this.handleClick}
+                >
+                    <p className="DiceText">{this.props.value}</p>
+                </div>
+            )
+
     }
+
+
+
+
+
   }
 }
 
